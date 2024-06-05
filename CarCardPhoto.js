@@ -1,5 +1,6 @@
 class CarCardPhoto{
     divContainer;
+    carPhotoData;
 
     identifier;
     codeCountry;
@@ -8,8 +9,8 @@ class CarCardPhoto{
     dataModel;
     markModel;
 
-    constructor(){
-        this.identifier = 'AE4000IT_BMW_X3';
+    constructor(carPhotoData){
+        this.identifier = 'AE4000IT_BMW_X3_2017';
         this.codeCountry = 'UA';
         this.numberText = 'AE 4000 IT';
         this.dataRegistr = '28.02.2024';
