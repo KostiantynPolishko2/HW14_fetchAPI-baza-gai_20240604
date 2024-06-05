@@ -5,7 +5,7 @@
     --car-card__padding: 5px;
 }
 
-#AE4000IT{
+#AE4000IT_BMW_X3{
     background-image: url('./img/bmw_x3_2017.jpg');
 }
 
@@ -120,8 +120,17 @@
     font-weight: 400;
 }
 
-.car-card__date-model > span, .car-card__mark-model > span {
+.car-card__data-model > span, .car-card__mark-model > span {
     font-weight: 600;
     font-size: 1.2rem;
     color: white;
+}
+
+.img_dog{
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    border-radius: 0px 0px 5px 5px;
 }
