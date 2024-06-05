@@ -5,15 +5,12 @@
     --car-card__padding: 5px;
 }
 
-#AE4000IT_BMW_X3_2017{
-    background-image: url('./img/bmw_x3_2017.jpg');
-}
-
-.car-card{
+#car-card__main{
     width: var(--car-card__width);
     height: var(--car-card__height);
     border-radius: 10px 0px 0px 10px;
     position: relative;
+    border: 1px solid black;
 }
 
 .car-card__img{
@@ -28,7 +25,6 @@
     right: var(--car-card__margin);
     bottom: var(--car-card__margin);
     left: var(--car-card__margin);
-    /* background-color: aqua; */
     padding: var(--car-card__padding);
 }
 
@@ -44,12 +40,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* background-color: rgb(255, 217, 4); */
     width: 100%;
 }
 
 .car-card__content-bottom{
-    /* background-color: yellow; */
     width: 100%;
 }
 
@@ -83,7 +77,6 @@
 }
 
 .plate-data__registr{
-    /* background-color: red; */
     padding: 5px;
 }
 
@@ -126,11 +119,6 @@
     color: white;
 }
 
-.img_dog{
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 1px solid black;
-    border-radius: 0px 0px 5px 5px;
+.img__car-card__main{
+    border-radius: 10px 0px 0px 10px;
 }

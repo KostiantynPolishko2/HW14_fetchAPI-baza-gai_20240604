@@ -2,27 +2,15 @@ class CarCardPhoto{
     divContainer;
     carPhotoData;
 
-    identifier;
-    codeCountry;
-    numberText;
-    dataRegistr;
-    dataModel;
-    markModel;
-
-    constructor(carPhotoData){
-        this.identifier = 'AE4000IT_BMW_X3_2017';
-        this.codeCountry = 'UA';
-        this.numberText = 'AE 4000 IT';
-        this.dataRegistr = '28.02.2024';
-        this.dataModel = '2017';
-        this.markModel = 'BMW X3';
-
+    constructor(id){
+        this.identifier = id;
         this.createCarCard();
-        this.setTxtCarCard();
     }
 
     createCarCard(){
-        this.divContainer = $('<div>').attr('id', this.identifier).addClass('car-card car-card__img')[0];
+        this.divContainer = $('<div>').attr('id', this.identifier).addClass('car-card__img')[0];
+        $(this.divContainer).append($("<img src='./img/car_icon.jpg' alt='car'>").addClass('img__car-card__main'));
+
         $(this.divContainer).append("<div class='car-card__content car-card__overlay'></div>");
         $(this.divContainer).find('div.car-card__content').append("<div class='car-card__content-top'></div>");
         $(this.divContainer).find('div.car-card__content').append("<div class='car-card__content-bottom'></div>");
@@ -40,11 +28,16 @@ class CarCardPhoto{
         $(this.divContainer).find('div.car-card__content-bottom').append("<div class='car-card__mark-model'><span></span></div>");
     }
    
-    setTxtCarCard(){
-        $(this.divContainer).find('div.plate-number__code-country > span').text(this.codeCountry);
-        $(this.divContainer).find('div.plate-number__text > span').text(this.numberText);
-        $(this.divContainer).find('div.plate-data__registr > span').text(this.dataRegistr);
-        $(this.divContainer).find('div.car-card__data-model > span').text(this.dataModel);
-        $(this.divContainer).find('div.car-card__mark-model > span').text(this.markModel);
+    setCarPhotoTxt(carPhotoData){
+        console.log(carPhotoData.photoUrl);
+        let url = 'https://baza-gai.com.ua/catalog-images/bmw/x3/III%20(G01)/image.jpg';
+
+        $(this.divContainer).find('img').attr('src', carPhotoData.photoUrl);
+
+        $(this.divContainer).find('div.plate-number__code-country > span').text(carPhotoData.codeCountry);
+        $(this.divContainer).find('div.plate-number__text > span').text(carPhotoData.numberText);
+        $(this.divContainer).find('div.plate-data__registr > span').text(carPhotoData.dataRegistr);
+        $(this.divContainer).find('div.car-card__data-model > span').text(carPhotoData.dataModel);
+        $(this.divContainer).find('div.car-card__mark-model > span').text(carPhotoData.markModel);
     }
 }
