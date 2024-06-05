@@ -1,6 +1,8 @@
 class CarCardPhoto{
     divContainer;
+
     identifier;
+    codeCountry;
     numberText;
     dataRegistr;
     dataModel;
@@ -8,11 +10,14 @@ class CarCardPhoto{
 
     constructor(){
         this.identifier = 'AE4000IT_BMW_X3';
+        this.codeCountry = 'UA';
         this.numberText = 'AE 4000 IT';
         this.dataRegistr = '28.02.2024';
+        this.dataModel = '2017';
         this.markModel = 'BMW X3';
 
         this.createCarCard();
+        this.setTxtCarCard();
     }
 
     createCarCard(){
@@ -32,5 +37,13 @@ class CarCardPhoto{
         $(this.divContainer).find('div.plate-number__flag').append("<div class='plate-number__code-country'><span></span></div>");
         $(this.divContainer).find('div.car-card__content-bottom').append("<div class='car-card__data-model'><span></span></div>");
         $(this.divContainer).find('div.car-card__content-bottom').append("<div class='car-card__mark-model'><span></span></div>");
+    }
+   
+    setTxtCarCard(){
+        $(this.divContainer).find('div.plate-number__code-country > span').text(this.codeCountry);
+        $(this.divContainer).find('div.plate-number__text > span').text(this.numberText);
+        $(this.divContainer).find('div.plate-data__registr > span').text(this.dataRegistr);
+        $(this.divContainer).find('div.car-card__data-model > span').text(this.dataModel);
+        $(this.divContainer).find('div.car-card__mark-model > span').text(this.markModel);
     }
 }
