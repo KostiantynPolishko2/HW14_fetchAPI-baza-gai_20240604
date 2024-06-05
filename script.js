@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', async (e) => {
     console.log('Start');
 
-    const carCardPhoto = new CarCardPhoto('car_photo_main');
-    document.querySelector('body').appendChild(carCardPhoto.divContainer);
+    // const carCardPhoto = new CarCardPhoto('car_photo_main');
+    // document.querySelector('body').appendChild(carCardPhoto.divContainer);
 
     let url = 'https://baza-gai.com.ua/nomer/';
     const key = '53f98d3aa5e27428971d52008bedee4a';
     let nomer = 'АА7855YВ';
 
-    try{
-        const carPhotoData = getCarPhotoData(await getApiObjByNumber(url, nomer, key));
-        carCardPhoto.setCarPhotoTxt(carPhotoData);
-    }
-    catch(error){
-        console.log(error);
-    }
+    // try{
+    //     const carPhotoData = getCarPhotoData(await getApiObjByNumber(url, nomer, key));
+    //     carCardPhoto.setCarPhotoTxt(carPhotoData);
+    // }
+    // catch(error){
+    //     console.log(error);
+    // }
 })
 
 

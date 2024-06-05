@@ -29,9 +29,6 @@ class CarCardPhoto{
     }
    
     setCarPhotoTxt(carPhotoData){
-        console.log(carPhotoData.photoUrl);
-        let url = 'https://baza-gai.com.ua/catalog-images/bmw/x3/III%20(G01)/image.jpg';
-
         $(this.divContainer).find('img').attr('src', carPhotoData.photoUrl);
 
         $(this.divContainer).find('div.plate-number__code-country > span').text(carPhotoData.codeCountry);
