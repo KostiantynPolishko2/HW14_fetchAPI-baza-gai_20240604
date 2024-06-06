@@ -5,30 +5,25 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     document.querySelector('body').appendChild(carCardPhoto.divContainer);
 
     document.search.send.addEventListener('click', (e)=>{       
-        let number = e.target.previousElementSibling.value;
-        document.search.reset();
+        let number = e.target.previousElementSibling.value.replace(/\s/g, '');
+        number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
-        if(!isNumber(number)){
-            createCarPhoto(number, carCardPhoto);
+        if(isNumber(number)){
+            // createCarPhoto(number, carCardPhoto);
+            number = e.target.previousElementSibling.value = number;
+            console.log('Correct');
         }
         else{
-            carCardPhoto.setDefault();
-            alert('Uncorrect input format!!!');           
+            // carCardPhoto.setDefault();
+            document.search.reset();
+            console.log('Uncorrect!!!');           
         }       
     })
 })
 
 const isNumber = (number) => {
-    const regex = /[A-Z]\d\d\d\d[A-Z]/i;
-
-    if(number.length < 8 || number.length > 8){
-        return true;
-    }
-    // else if(regex.test(number)){
-    //     return true;
-    // }
-
-    return false;
+    const regex = /\b[A-Z]{2}\d{4}[A-Z]{2}\b/i;
+    return regex.test(number);
 }
 
 const createCarPhoto = async(nomer, carCardPhoto) => {
