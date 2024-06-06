@@ -14,6 +14,7 @@
 }
 
 .car-card__img{
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,6 +37,8 @@
 }
 
 .car-card__content-top{
+    top: 20px;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

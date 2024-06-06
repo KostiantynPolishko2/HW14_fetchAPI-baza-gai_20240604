@@ -37,4 +37,14 @@ class CarCardPhoto{
         $(this.divContainer).find('div.car-card__data-model > span').text(carPhotoData.dataModel);
         $(this.divContainer).find('div.car-card__mark-model > span').text(carPhotoData.markModel);
     }
+
+    setDefault(){
+        $(this.divContainer).find('img').attr('src', './img/car_icon.jpg');
+
+        $(this.divContainer).find('div.plate-number__code-country > span').empty();
+        $(this.divContainer).find('div.plate-number__text > span').empty();
+        $(this.divContainer).find('div.plate-data__registr > span').empty();
+        $(this.divContainer).find('div.car-card__data-model > span').empty();
+        $(this.divContainer).find('div.car-card__mark-model > span').empty();
+    }
 }

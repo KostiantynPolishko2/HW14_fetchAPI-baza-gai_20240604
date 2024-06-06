@@ -10,11 +10,6 @@ body{
     transform: translate(-50%, -50%);
 }
 
-div{
-    display: block;
-    unicode-bidi: isolate;
-}
-
 img{
     width: 100%;
     height: 100%;
@@ -22,7 +17,6 @@ img{
     display: block;
 }
 
-form{
+form {
     display: block;
-    unicode-bidi: isolate;
 }
