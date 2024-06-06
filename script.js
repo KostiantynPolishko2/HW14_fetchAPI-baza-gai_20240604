@@ -9,14 +9,12 @@ document.addEventListener('DOMContentLoaded', async (e) => {
         number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
         if(isNumber(number)){
-            // createCarPhoto(number, carCardPhoto);
-            number = e.target.previousElementSibling.value = number;
-            console.log('Correct');
+            createCarPhoto(number, carCardPhoto);
+            e.target.previousElementSibling.value = number;
         }
         else{
-            // carCardPhoto.setDefault();
-            document.search.reset();
-            console.log('Uncorrect!!!');           
+            carCardPhoto.setInputUnFormat(number);
+            document.search.reset();         
         }       
     })
 })
@@ -31,11 +29,10 @@ const createCarPhoto = async(nomer, carCardPhoto) => {
     const key = '53f98d3aa5e27428971d52008bedee4a';
 
     try{
-        const carPhotoData = getCarPhotoData(await getApiObjByNumber(url, nomer, key));
-        carCardPhoto.setCarPhotoTxt(carPhotoData);
+        carCardPhoto.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber(url, nomer, key)));
     }
     catch(error){
-        console.log(error);
+        carCardPhoto.setEror404(nomer);
     }
 }
 

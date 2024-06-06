@@ -5,7 +5,7 @@
     --car-card__padding: 5px;
 }
 
-#car-card__main{
+.car-card__main{
     width: var(--car-card__width);
     height: var(--car-card__height);
     border-radius: 10px 0px 0px 10px;
@@ -77,6 +77,21 @@
 .plate-number__text > span {
     color: #212529;
     line-height: 35px;
+}
+
+.content-top__message-info {
+    width: 50%;
+    background-color: red;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.content-top__message-info > span {
+    color: white;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 0.8rem;
 }
 
 .plate-data__registr{
