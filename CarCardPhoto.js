@@ -9,7 +9,7 @@ class CarCardPhoto{
     }
 
     createCarCard(){
-        this.divContainer = $('<div>').attr('id', this.identifier).addClass(['car-card__main', 'car-card__img'])[0];
+        this.divContainer = $('<div>').attr('id', this.identifier).addClass('car-card__img')[0];
         $(this.divContainer).append($("<img src='./img/car_icon.jpg' alt='car'>").addClass('img__car-card__main'));
 
         $(this.divContainer).append("<div class='car-card__content car-card__overlay'></div>");
@@ -17,7 +17,7 @@ class CarCardPhoto{
         $(this.divContainer).find('div.car-card__content').append("<div class='car-card__content-bottom'></div>");
 
         $(this.divContainer).find('div.car-card__content-top').append("<div class='plate-number'></div>");
-        $(this.divContainer).find('div.car-card__content-top').append("<div><span></span></div>");
+        $(this.divContainer).find('div.car-card__content-top').append("<div><span></span></div>")
         $(this.divContainer).find('div.car-card__content-top').append("<div class='plate-data__registr'><span></span></div>");
         $(this.divContainer).find('div.plate-number').append("<div class='plate-number__flag'></div>");
         $(this.divContainer).find('div.plate-number').append("<div class='plate-number__text'><span></span></div>");
