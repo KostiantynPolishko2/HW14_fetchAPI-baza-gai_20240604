@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', async (e) => {
 
     const carsPhotoNext = [];
     createArrCarPhotoNext(carsPhotoNext, 5);
-    console.log(carsPhotoNext);
-    // document.querySelector('main').lastElementChild.appendChild(carPhotoNext.divContainer);
 
     document.search.send.addEventListener('click', (e)=>{       
         let number = e.target.previousElementSibling.value.replace(/\s/g, '');
@@ -33,11 +31,29 @@ const createArrCarPhotoNext = (carsPhotoNext, size) => {
 }
 
 const isNumber = (number) => {
+    console.log(number);
     const regex = /\b[A-Z]{2}\d{4}[A-Z]{2}\b/i;
     return regex.test(number);
 }
 
+const removeChild = (layoutElements) => {
+    while(layoutElements.firstElementChild){
+        layoutElements.firstElementChild.remove();
+    }
+}
+
+const copyInstance = (instance) => {
+    return Object.assign(
+        Object.create(
+            Object.getPrototypeOf(instance),
+        ), JSON.parse(JSON.stringify(instance))
+    );
+}
+
 const createCarPhoto = async(nomer, carPhotoMain, carsPhotoNext) => {
+    
+    removeChild($('main section').last()[0]);
+
     try{
         const result = await getApiObjByNumber(nomer);
         carPhotoMain.setCarPhotoTxt(getCarPhotoData(result));
@@ -59,7 +75,7 @@ const createCarPhoto = async(nomer, carPhotoMain, carsPhotoNext) => {
         }
     }
     catch(error){
-        carCardPhoto.setEror404(nomer);
+        carPhotoMain.setEror404(nomer);
     }
 }
 
