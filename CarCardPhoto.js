@@ -8,8 +8,17 @@ class CarCardPhoto{
         this.#setDefault();
     }
 
+    set id(value){
+        this.#identifier = `${this.#identifier}__${value}`
+        this.#assignIDCarCard();
+    }
+
+    #assignIDCarCard(){
+        this.divContainer.id = this.#identifier;
+    }
+
     #createCarCard(){
-        this.divContainer = $('<div>').attr('id', this.#identifier).addClass(['car-card__main', 'car-card__img'])[0];
+        this.divContainer = $('<div>').addClass(['car-card__main', 'car-card__img'])[0];
         $(this.divContainer).append($("<img src='./img/car_icon.jpg' alt='car'>").addClass('img__car-card__main'));
 
         $(this.divContainer).append("<div class='car-card__content car-card__overlay'></div>");

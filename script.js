@@ -56,6 +56,7 @@ const createCarPhoto = async(nomer, carPhotoMain, carsPhotoNext) => {
 
     try{
         const result = await getApiObjByNumber(nomer);
+        carPhotoMain.id = `${result.vendor??= 'x-vendor'}-${result.model??= 'y-model'}`;
         carPhotoMain.setCarPhotoTxt(getCarPhotoData(result));
 
         //===create list photos of previous cars===
@@ -64,6 +65,7 @@ const createCarPhoto = async(nomer, carPhotoMain, carsPhotoNext) => {
             for(let i = 1; i != cars.length; i++){
                 try{
                     let url_photo = getUrlPhotoCar(await getApiObjByVendorModel(cars[i].vendor, cars[i].model));
+                    carsPhotoNext[i-1].id = `${cars[i].vendor??= 'vendor' + (i-1).toString()}-${cars[i].model??= 'model' + (i-1).toString()}`;
                     carsPhotoNext[i-1].setCarPhotoTxt(getCarPhotoDataToNext(cars[i], url_photo, nomer));
                     document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
                 }
