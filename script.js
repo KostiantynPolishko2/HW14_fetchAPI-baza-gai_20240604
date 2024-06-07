@@ -1,19 +1,22 @@
 document.addEventListener('DOMContentLoaded', async (e) => {
     console.log('Start');
 
-    const carCardPhoto = new CarCardPhoto('car_photo_main');
-    document.querySelector('body').appendChild(carCardPhoto.divContainer);
+    // const carPhotoNext = new CarPhotoNext('car-photo__next');
+    // document.querySelector('body').appendChild(carPhotoNext.divContainer);
+
+    const carPhotoMain = new CarPhotoMain('car-photo__main');
+    document.querySelector('body').appendChild(carPhotoMain.divContainer);
 
     document.search.send.addEventListener('click', (e)=>{       
         let number = e.target.previousElementSibling.value.replace(/\s/g, '');
         number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
         if(isNumber(number)){
-            createCarPhoto(number, carCardPhoto);
+            createCarPhoto(number, carPhotoMain);
             e.target.previousElementSibling.value = number;
         }
         else{
-            carCardPhoto.setInputUnFormat(number);
+            carPhotoMain.setInputUnFormat(number);
             document.search.reset();         
         }       
     })

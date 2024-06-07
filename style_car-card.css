@@ -6,15 +6,14 @@
 }
 
 .car-card__main{
-    width: var(--car-card__width);
-    height: var(--car-card__height);
+    /* width: var(--car-card__width);
+    height: var(--car-card__height); */
     border-radius: 10px 0px 0px 10px;
     position: relative;
     border: 1px solid black;
 }
 
 .car-card__img{
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
