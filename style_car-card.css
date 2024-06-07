@@ -1,0 +1,142 @@
+:root{
+    --car-card__width: 500px;
+    --car-card__height: 375px;
+    --car-card__margin: 15px;
+    --car-card__padding: 5px;
+}
+
+.car-card__main{
+    width: var(--car-card__width);
+    height: var(--car-card__height);
+    border-radius: 10px 0px 0px 10px;
+    position: relative;
+    border: 1px solid black;
+}
+
+.car-card__img{
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.car-card__overlay{
+    position: absolute;
+    top: var(--car-card__margin);
+    right: var(--car-card__margin);
+    bottom: var(--car-card__margin);
+    left: var(--car-card__margin);
+    padding: var(--car-card__padding);
+}
+
+.car-card__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-card__content-top{
+    top: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.car-card__content-bottom{
+    width: 100%;
+}
+
+.plate-number{
+    border: 2px solid #484848;
+    border-radius: 5px;
+    width: auto;
+    display: inline-flex;
+    height: 35px;
+}
+
+.plate-number__flag{
+    width: 30px;
+    background-color: #2860ab;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0px;
+}
+
+.plate-number__text{
+    text-align: center;
+    background-color: white;
+    padding: 0px 8px;
+}
+
+.plate-number__text > span {
+    color: #212529;
+    line-height: 35px;
+}
+
+.content-top__message-info {
+    width: 50%;
+    background-color: red;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.content-top__message-info > span {
+    color: white;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.plate-data__registr{
+    padding: 5px;
+}
+
+.plate-data__registr > span {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.plate-number__flag-icon{
+    width: 20px;
+    height: 15px;
+    margin: auto;  
+}
+
+.flag-icon__blue{
+    height: 6px;
+    background-color: #3a75c4;
+}
+
+.flag-icon__yellow{
+    height: 6px;
+    background-color: #f9dd16;
+}
+
+.plate-number__code-country{
+    height: 15px;
+    text-align: center;
+}
+
+.plate-number__code-country > span{
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.car-card__data-model > span, .car-card__mark-model > span {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.img__car-card__main{
+    border-radius: 10px 0px 0px 10px;
+}
