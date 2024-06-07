@@ -31,7 +31,7 @@ const createArrCarPhotoNext = (carsPhotoNext, size) => {
 }
 
 const isNumber = (number) => {
-    console.log(number);
+    //console.log(number);
     const regex = /\b[A-Z]{2}\d{4}[A-Z]{2}\b/i;
     return regex.test(number);
 }
