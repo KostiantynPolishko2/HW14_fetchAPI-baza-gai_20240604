@@ -1,3 +1,10 @@
+section.car-card__hor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .mb-2{
     margin-bottom: 0.5rem;
 }

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     // getUrlPhotoCar(await getApiObjByVendorModel('bmw', '328i'), 2014);
 
     const carPhotoMain = new CarPhotoMain('car-photo__main');
-    document.querySelector('body').appendChild(carPhotoMain.divContainer);
+    document.querySelector('main').firstElementChild.appendChild(carPhotoMain.divContainer);
 
     document.search.send.addEventListener('click', (e)=>{       
         let number = e.target.previousElementSibling.value.replace(/\s/g, '');

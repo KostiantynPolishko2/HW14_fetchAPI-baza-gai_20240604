@@ -6,8 +6,6 @@
 }
 
 .car-card__main{
-    /* width: var(--car-card__width);
-    height: var(--car-card__height); */
     border-radius: 10px 0px 0px 10px;
     position: relative;
     border: 1px solid black;
@@ -36,8 +34,6 @@
 }
 
 .car-card__content-top{
-    top: 20px;
-    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -134,8 +130,4 @@
     font-weight: 600;
     font-size: 1.2rem;
     color: white;
-}
-
-.img__car-card__main{
-    border-radius: 10px 0px 0px 10px;
 }
