@@ -5,6 +5,7 @@ class CarCardPhoto{
     constructor(id){
         this.identifier = id;
         this.createCarCard();
+        this.setDefault();
     }
 
     createCarCard(){
@@ -16,6 +17,7 @@ class CarCardPhoto{
         $(this.divContainer).find('div.car-card__content').append("<div class='car-card__content-bottom'></div>");
 
         $(this.divContainer).find('div.car-card__content-top').append("<div class='plate-number'></div>");
+        $(this.divContainer).find('div.car-card__content-top').append("<div><span></span></div>")
         $(this.divContainer).find('div.car-card__content-top').append("<div class='plate-data__registr'><span></span></div>");
         $(this.divContainer).find('div.plate-number').append("<div class='plate-number__flag'></div>");
         $(this.divContainer).find('div.plate-number').append("<div class='plate-number__text'><span></span></div>");
@@ -36,15 +38,31 @@ class CarCardPhoto{
         $(this.divContainer).find('div.plate-data__registr > span').text(carPhotoData.dataRegistr);
         $(this.divContainer).find('div.car-card__data-model > span').text(carPhotoData.dataModel);
         $(this.divContainer).find('div.car-card__mark-model > span').text(carPhotoData.markModel);
+
+        $(this.divContainer).find('div.content-top__message-info > span').empty();
+        $(this.divContainer).find('div.plate-number').next().removeClass();
     }
 
-    setDefault(){
+    setDefault(number='XXDDDDXX'){
         $(this.divContainer).find('img').attr('src', './img/car_icon.jpg');
 
         $(this.divContainer).find('div.plate-number__code-country > span').empty();
-        $(this.divContainer).find('div.plate-number__text > span').empty();
+        $(this.divContainer).find('div.plate-number__text > span').text(number);
         $(this.divContainer).find('div.plate-data__registr > span').empty();
         $(this.divContainer).find('div.car-card__data-model > span').empty();
         $(this.divContainer).find('div.car-card__mark-model > span').empty();
+    }
+
+    setInputUnFormat(number){
+        this.setDefault(number);
+        $(this.divContainer).find('div.plate-number').next().addClass('content-top__message-info');
+        $(this.divContainer).find('div.content-top__message-info > span').text('UNCORRECT FORMAT!');
+    }
+
+    setEror404(number){
+        this.setDefault(number);
+        $(this.divContainer).find('div.plate-number').next().addClass('content-top__message-info');
+        $(this.divContainer).find('div.content-top__message-info > span').text('NUMBER IS ABSENT!');
+        $(this.divContainer).find('img.img__car-card__main').attr('src', './img/error404.jpg');
     }
 }

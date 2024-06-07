@@ -5,30 +5,23 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     document.querySelector('body').appendChild(carCardPhoto.divContainer);
 
     document.search.send.addEventListener('click', (e)=>{       
-        let number = e.target.previousElementSibling.value;
-        document.search.reset();
+        let number = e.target.previousElementSibling.value.replace(/\s/g, '');
+        number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
-        if(!isNumber(number)){
+        if(isNumber(number)){
             createCarPhoto(number, carCardPhoto);
+            e.target.previousElementSibling.value = number;
         }
         else{
-            carCardPhoto.setDefault();
-            alert('Uncorrect input format!!!');           
+            carCardPhoto.setInputUnFormat(number);
+            document.search.reset();         
         }       
     })
 })
 
 const isNumber = (number) => {
-    const regex = /[A-Z]\d\d\d\d[A-Z]/i;
-
-    if(number.length < 8 || number.length > 8){
-        return true;
-    }
-    // else if(regex.test(number)){
-    //     return true;
-    // }
-
-    return false;
+    const regex = /\b[A-Z]{2}\d{4}[A-Z]{2}\b/i;
+    return regex.test(number);
 }
 
 const createCarPhoto = async(nomer, carCardPhoto) => {
@@ -36,11 +29,10 @@ const createCarPhoto = async(nomer, carCardPhoto) => {
     const key = '53f98d3aa5e27428971d52008bedee4a';
 
     try{
-        const carPhotoData = getCarPhotoData(await getApiObjByNumber(url, nomer, key));
-        carCardPhoto.setCarPhotoTxt(carPhotoData);
+        carCardPhoto.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber(url, nomer, key)));
     }
     catch(error){
-        console.log(error);
+        carCardPhoto.setEror404(nomer);
     }
 }
 
