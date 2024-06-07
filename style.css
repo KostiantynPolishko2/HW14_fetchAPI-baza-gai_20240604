@@ -20,3 +20,7 @@ img{
 form {
     display: block;
 }
+
+section{
+    margin: 5px;
+}

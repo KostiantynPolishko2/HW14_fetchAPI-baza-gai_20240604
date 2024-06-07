@@ -3,20 +3,20 @@ const key = '53f98d3aa5e27428971d52008bedee4a';
 document.addEventListener('DOMContentLoaded', async (e) => {
     console.log('Start');
 
-    // const carPhotoNext = new CarPhotoNext('car-photo__next');
-    // document.querySelector('body').appendChild(carPhotoNext.divContainer);
-
-    // getUrlPhotoCar(await getApiObjByVendorModel('bmw', '328i'), 2014);
-
     const carPhotoMain = new CarPhotoMain('car-photo__main');
     document.querySelector('main').firstElementChild.appendChild(carPhotoMain.divContainer);
+
+    const carsPhotoNext = [];
+    createArrCarPhotoNext(carsPhotoNext, 5);
+    console.log(carsPhotoNext);
+    // document.querySelector('main').lastElementChild.appendChild(carPhotoNext.divContainer);
 
     document.search.send.addEventListener('click', (e)=>{       
         let number = e.target.previousElementSibling.value.replace(/\s/g, '');
         number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
         if(isNumber(number)){
-            createCarPhoto(number, carPhotoMain);
+            createCarPhoto(number, carPhotoMain, carsPhotoNext);
             e.target.previousElementSibling.value = number;
         }
         else{
@@ -26,22 +26,35 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     })
 })
 
+const createArrCarPhotoNext = (carsPhotoNext, size) => {
+    for(let i = 0; i != size; i++){
+        carsPhotoNext.push(new CarPhotoNext('car-photo__next'));
+    }
+}
+
 const isNumber = (number) => {
     const regex = /\b[A-Z]{2}\d{4}[A-Z]{2}\b/i;
     return regex.test(number);
 }
 
-const createCarPhoto = async(nomer, carCardPhoto) => {
+const createCarPhoto = async(nomer, carPhotoMain, carsPhotoNext) => {
     try{
         const result = await getApiObjByNumber(nomer);
-        carCardPhoto.setCarPhotoTxt(getCarPhotoData(result));
+        carPhotoMain.setCarPhotoTxt(getCarPhotoData(result));
 
         //===create list photos of previous cars===
         const cars = Array.from(result.operations);
         if(cars.length > 1){
             for(let i = 1; i != cars.length; i++){
-                let url_photo = getUrlPhotoCar(await getApiObjByVendorModel(cars[i].vendor, cars[i].model));
-                console.log(i, getCarPhotoDataToNext(cars[i], url_photo, nomer));
+                try{
+                    let url_photo = getUrlPhotoCar(await getApiObjByVendorModel(cars[i].vendor, cars[i].model));
+                    carsPhotoNext[i-1].setCarPhotoTxt(getCarPhotoDataToNext(cars[i], url_photo, nomer));
+                    document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
+                }
+                catch(error){
+                    carsPhotoNext[i-1].setEror404(nomer);
+                    document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
+                }
             }
         }
     }
@@ -93,7 +106,7 @@ const getApiObjByVendorModel = async (vendor, model) => {
         return responce.json();
     }
     else{
-        return null;
+        throw new Error();
     }
 }
 

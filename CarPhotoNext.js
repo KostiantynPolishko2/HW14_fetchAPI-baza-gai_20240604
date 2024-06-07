@@ -9,5 +9,6 @@ class CarPhotoNext extends CarCardPhoto{
 
     #setSize(){
         $(this.divContainer).css({width: `${this.#userWidth}px`, height: `${this.#userHeight}px`});
+        $(this.divContainer).addClass('car-card__next__br-radius');
     }
 }
