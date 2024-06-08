@@ -1,38 +1,57 @@
 class CarPhotoHtmlElement extends HTMLElement{
-    // identifier;
-    content
+    #identifier = 'car-photo';
+    #template;
 
-    constructor(template = null){
-        super(); 
+    constructor(){
+        super();
 
-        this.content = template;
-        this.createElement();
-        // this.identifier = identifier;  
-        // this.setStyle();
-        // this.setText('Hello\n');
-        // this.innerText = text;
-    }
-
-    connectedCallback(){
-        console.log(this.content);
-        // this.append(this.content);
-        // this = this.content;
-        // this.setStyle();
-        // this.setText('Hello\n');
+        this.#template = document.querySelector('template#car-photo').content;
+        this.#createElement();
+        this.#setDefault();
     }
     
-    createElement(){
-        this.append(this.content);
+    get identifier(){
+        return this.#identifier;
     }
 
-    setStyle(){
-        this.id = this.identifier;
-        this.style.color = 'white';
-        this.style.backgroundColor = 'blue';  
+    #createElement(){
+        this.appendChild(this.#template);
     }
 
-    setText(text){
-        this.innerText = text;
+    #setDefault(number='XXDDDDXX'){
+        $(this).find('img').attr('src', './img/car_icon.jpg');
+
+        $(this).find('div.plate-number__code-country > span').empty();
+        $(this).find('div.plate-number__text > span').text(number);
+        $(this).find('div.plate-data__registr > span').empty();
+        $(this).find('div.car-card__data-model > span').empty();
+        $(this).find('div.car-card__mark-model > span').empty();
+    }
+
+    setCarPhotoTxt(carPhotoData){
+        $(this).find('img').attr('src', carPhotoData.photoUrl);
+
+        $(this).find('div.plate-number__code-country > span').text(carPhotoData.codeCountry);
+        $(this).find('div.plate-number__text > span').text(carPhotoData.numberText);
+        $(this).find('div.plate-data__registr > span').text(carPhotoData.dataRegistr);
+        $(this).find('div.car-card__data-model > span').text(carPhotoData.dataModel);
+        $(this).find('div.car-card__mark-model > span').text(carPhotoData.markModel);
+
+        $(this).find('div.content-top__message-info > span').empty();
+        $(this).find('div.plate-number').next().removeClass();
+    }
+
+    setInputUnFormat(number){
+        this.#setDefault(number);
+        $(this).find('div.plate-number').next().addClass('content-top__message-info');
+        $(this).find('div.content-top__message-info > span').text('UNCORRECT FORMAT!');
+    }
+
+    setEror404(number){
+        this.#setDefault(number);
+        $(this).find('div.plate-number').next().addClass('content-top__message-info');
+        $(this).find('div.content-top__message-info > span').text('NUMBER IS ABSENT!');
+        $(this).find('img.img__car-card__main').attr('src', './img/error404.jpg');
     }
 }
 

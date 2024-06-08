@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', e => {
+document.addEventListener('DOMContentLoaded', async e => {
     console.log('Start templates');
 
     //===create and use <template> inside DOM===//
@@ -16,14 +16,35 @@ document.addEventListener('DOMContentLoaded', e => {
 
     // console.log('id=', document.getElementById('1tmpt'));
 
-    //===create and use <template> inside customElement===//
+    //===create and use <template> inside customElement cts parameter = <template>===//
 
-    const template = document.querySelector('template#car-photo').content.querySelector('div.car-card__main');
-    const carPhoto = new CarPhotoHtmlElement(template);
-    document.querySelector('body#template').appendChild(carPhoto);
+    // const template = document.querySelector('template#car-photo').content.querySelector('div.car-card__main');
+    // const carPhoto = new CarPhotoHtmlElement(template);
+    // document.querySelector('body#template').appendChild(carPhoto);
 
-    const clone = carPhoto.cloneNode(true);
-    console.log(clone);
+    // const clone = carPhoto.cloneNode(true);
+    // console.log(clone);
+    // document.querySelector('body#template').appendChild(clone);
+
+    //===create and use <template> inside customElement cts parameter = <template>===//
+
+    // const carPhoto = new CarPhotoHtmlElement();
+    // document.querySelector('body#template').appendChild(carPhoto);
+
+    const carPhotoMain = new CarPhotoMainHtml();
+    carPhotoMain.identity = 'BMW-X3';
+    
+    carPhotoMain.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
+    document.querySelector('body#template').appendChild(carPhotoMain);
+    
+    const clone = carPhotoMain.cloneNode(true);
+    clone.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
     document.querySelector('body#template').appendChild(clone);
+
+    // carPhotoMain.setInputUnFormat('AE4000IT');
+    // document.querySelector('body#template').appendChild(carPhotoMain);
+
+    // const clone = carPhoto.cloneNode(true);
+    // document.querySelector('body#template').appendChild(clone);
 })
 

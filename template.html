@@ -8,22 +8,14 @@
     <link rel="stylesheet" href="./style_page-env.css">
     <link rel="stylesheet" href="./style_car-card.css">
     <script src="./CarPhotoHtmlElement.js"></script>
+    <script src="./CarPhotoMainHtml.js"></script>
+    <script src="./script.js"></script>
     <script src="./script_template.js"></script>
     <title>Templates</title>
 </head>
     <body id="template">
-        <!-- <car-photo></car-photo>
-        <car-photo></car-photo> -->
-
-        <!-- container of car-photo -->
-
-        <!-- <template id="car-photo" shadowrootmode="open">
-            <link rel="stylesheet" href="./style.css">
-            <link rel="stylesheet" href="./style_page-env.css">
-            <link rel="stylesheet" href="./style_car-card.css"> -->
-
         <template id="car-photo">
-            <div class="car-card__main car-card__img car-card__main__br-radius">
+            <div class="car-card__main car-card__img">
                 <img src="./img/car_icon.jpg" alt="car">
                 <div class="car-card__content car-card__overlay">
                     <div class="car-card__content-top">
@@ -41,9 +33,9 @@
                             <span>AE 4000 IT</span>
                         </div>  
                         </div>
-                        <div class="content-top__message-info">
+                        <!-- <div class="content-top__message-info">
                             <span>Uncorrect format!!!</span>
-                        </div>
+                        </div> -->
                         <div class="plate-data__registr">
                             <span>28.02.2024</span>
                         </div>

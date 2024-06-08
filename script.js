@@ -1,27 +1,27 @@
 const key = '53f98d3aa5e27428971d52008bedee4a';
 
 document.addEventListener('DOMContentLoaded', async (e) => {
-    console.log('Start');
+    // console.log('Start');
 
-    const carPhotoMain = new CarPhotoMain('car-photo__main');
-    document.querySelector('main').firstElementChild.appendChild(carPhotoMain.divContainer);
+    // const carPhotoMain = new CarPhotoMain('car-photo__main');
+    // document.querySelector('main').firstElementChild.appendChild(carPhotoMain.divContainer);
 
-    const carsPhotoNext = [];
-    createArrCarPhotoNext(carsPhotoNext, 5);
+    // const carsPhotoNext = [];
+    // createArrCarPhotoNext(carsPhotoNext, 5);
 
-    document.search.send.addEventListener('click', (e)=>{       
-        let number = e.target.previousElementSibling.value.replace(/\s/g, '');
-        number = number.replace(/[a-z]/gi, x => x.toUpperCase());
+    // document.search.send.addEventListener('click', (e)=>{       
+    //     let number = e.target.previousElementSibling.value.replace(/\s/g, '');
+    //     number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
-        if(isNumber(number)){
-            createCarPhoto(number, carPhotoMain, carsPhotoNext);
-            e.target.previousElementSibling.value = number;
-        }
-        else{
-            carPhotoMain.setInputUnFormat(number);
-            document.search.reset();         
-        }       
-    })
+    //     if(isNumber(number)){
+    //         createCarPhoto(number, carPhotoMain, carsPhotoNext);
+    //         e.target.previousElementSibling.value = number;
+    //     }
+    //     else{
+    //         carPhotoMain.setInputUnFormat(number);
+    //         document.search.reset();         
+    //     }       
+    // })
 })
 
 const createArrCarPhotoNext = (carsPhotoNext, size) => {
