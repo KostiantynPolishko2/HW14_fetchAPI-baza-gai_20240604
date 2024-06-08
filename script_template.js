@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', e => {
     console.log('Start templates');
 
-    const carPhoto = document.querySelector('template#car-photo').content.querySelector('div.car-card__main');
-    const body = document.querySelector('body#template');
+    //===create and use <template> inside DOM===//
 
-    // let content1 = carPhoto.cloneNode(true);
-    // $(content1).css({width: `${355}px`, height: `${265}px`});
+    // const carPhoto = document.querySelector('template#car-photo').content;
+    // const body = document.querySelector('body#template');
 
-    // body.appendChild(content1);
+    // for (let i = 0; i != 2; i++){
+    //     let content = carPhoto.cloneNode(true);
+    //     content.querySelector('div').id = `${(i+1)}tmpt`;
+    //     content.querySelector('div.plate-number__code-country').firstElementChild.textContent = 'TT';
+    //     $(content.querySelector('div')).css({width: `${355}px`, height: `${265}px`});
+    //     body.appendChild(content);
+    // }
 
-    for (let i = 0; i != 2; i++){
-        let content = carPhoto.cloneNode(true);
-        content.id = `${(i+1)}tmpt`;
-        console.log(`${(i+1)}tmpt`);
-        $(content).css({width: `${355}px`, height: `${265}px`});
-        body.appendChild(content);
-    }
+    // console.log('id=', document.getElementById('1tmpt'));
 
-    console.log('id=', document.getElementById('1tmpt'));
+    //===create and use <template> inside customElement===//
+
+    const template = document.querySelector('template#car-photo').content.querySelector('div.car-card__main');
+    const carPhoto = new CarPhotoHtmlElement(template);
+    document.querySelector('body#template').appendChild(carPhoto);
+
+    const clone = carPhoto.cloneNode(true);
+    console.log(clone);
+    document.querySelector('body#template').appendChild(clone);
 })
 

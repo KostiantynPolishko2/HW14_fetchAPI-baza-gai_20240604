@@ -1,11 +1,38 @@
 class CarPhotoHtmlElement extends HTMLElement{
+    // identifier;
+    content
 
-    constructor(){
-        super();
+    constructor(template = null){
+        super(); 
 
-        this.style.width = '500px';
-        this.style.height = '375px';
-        this.style.backgroundColor = 'red';
+        this.content = template;
+        this.createElement();
+        // this.identifier = identifier;  
+        // this.setStyle();
+        // this.setText('Hello\n');
+        // this.innerText = text;
+    }
+
+    connectedCallback(){
+        console.log(this.content);
+        // this.append(this.content);
+        // this = this.content;
+        // this.setStyle();
+        // this.setText('Hello\n');
+    }
+    
+    createElement(){
+        this.append(this.content);
+    }
+
+    setStyle(){
+        this.id = this.identifier;
+        this.style.color = 'white';
+        this.style.backgroundColor = 'blue';  
+    }
+
+    setText(text){
+        this.innerText = text;
     }
 }
 
