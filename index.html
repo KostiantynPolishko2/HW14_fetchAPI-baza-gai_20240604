@@ -11,6 +11,9 @@
     <script src="./CarPhotoMain.js"></script>
     <script src="./CarPhotoNext.js"></script>
     <script src="./CarPhotoHtmlElement.js"></script>
+    <script src="./CarPhotoMainHtml.js"></script>
+    <script src="./CarPhotoNextHtml.js"></script>
+    <script src="./function.js"></script>
     <script src="./script.js"></script>
     <title>Lesson14_baza-gai</title>
 </head>
@@ -32,7 +35,7 @@
         <section class="car-card__hor">
 
             <!-- container of Car-Photo -->
-            <template></template>
+
         </section>
         <section class="car-card__hor">
 
@@ -41,4 +44,43 @@
 
     <footer></footer>
 </body>
+
+<template id="car-photo">
+    <div class="car-card__main car-card__img">
+        <img src="./img/car_icon.jpg" alt="car">
+        <div class="car-card__content car-card__overlay">
+            <div class="car-card__content-top">
+                <div class="plate-number">
+                <div class="plate-number__flag">
+                    <div class="plate-number__flag-icon">
+                        <div class="flag-icon__blue"></div>
+                        <div class="flag-icon__yellow"></div>
+                    </div>
+                    <div class="plate-number__code-country">
+                        <span>UA</span>
+                    </div>
+                </div>
+                <div class="plate-number__text">
+                    <span>AE 4000 IT</span>
+                </div>  
+                </div>
+                <!-- <div class="content-top__message-info">
+                    <span>Uncorrect format!!!</span>
+                </div> -->
+                <div class="plate-data__registr">
+                    <span>28.02.2024</span>
+                </div>
+            </div>
+            <div class="car-card__content-bottom">
+                <div class="car-card__data-model">
+                    <span>2017</span>
+                </div>
+                <div class="car-card__mark-model">
+                    <span>BMW X3<span></span>
+                </div> 
+            </div>
+        </div>
+    </div>
+</template>
+  
 </html>
