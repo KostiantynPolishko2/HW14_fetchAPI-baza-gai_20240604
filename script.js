@@ -29,7 +29,7 @@ const createCarPhoto = async(nomer, carPhotoMain) => {
         carPhotoMain.identity = `${result.vendor??= 'x-vendor'}-${result.model??= 'y-model'}`;
         carPhotoMain.setCarPhotoTxt(getCarPhotoData(result));
 
-        //===create list photos of previous cars===
+        //===create list photos of previous cars===//
         const cars = Array.from(result.operations);
         
         if(cars.length > 1){
