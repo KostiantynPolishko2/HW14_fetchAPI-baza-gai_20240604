@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async e => {
-    console.log('Start templates');
+    console.log('Start template.html');
 
     //===create and use <template> inside DOM===//
 
@@ -31,18 +31,23 @@ document.addEventListener('DOMContentLoaded', async e => {
     // const carPhoto = new CarPhotoHtmlElement();
     // document.querySelector('body#template').appendChild(carPhoto);
 
+    console.log('form', document.querySelector('form'));
+
     const carPhotoMain = new CarPhotoMainHtml();
     carPhotoMain.identity = 'BMW-X3';
     
-    carPhotoMain.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
-    document.querySelector('body#template').appendChild(carPhotoMain);
+    // carPhotoMain.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
+    // document.querySelector('body#template').appendChild(carPhotoMain);
     
-    const clone = carPhotoMain.cloneNode(true);
-    clone.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
-    document.querySelector('body#template').appendChild(clone);
+    // const clone = carPhotoMain.cloneNode(true);
+    // clone.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
+    // document.querySelector('body#template').appendChild(clone);
 
     // carPhotoMain.setInputUnFormat('AE4000IT');
     // document.querySelector('body#template').appendChild(carPhotoMain);
+
+    carPhotoMain.setEror404('AE4000IT');
+    document.querySelector('body#template').appendChild(carPhotoMain);
 
     // const clone = carPhoto.cloneNode(true);
     // document.querySelector('body#template').appendChild(clone);

@@ -51,7 +51,7 @@ class CarPhotoHtmlElement extends HTMLElement{
         this.#setDefault(number);
         $(this).find('div.plate-number').next().addClass('content-top__message-info');
         $(this).find('div.content-top__message-info > span').text('NUMBER IS ABSENT!');
-        $(this).find('img.img__car-card__main').attr('src', './img/error404.jpg');
+        $(this).find('img').attr('src', './img/error404.jpg');
     }
 }
 

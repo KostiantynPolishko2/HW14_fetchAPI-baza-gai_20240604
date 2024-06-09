@@ -24,3 +24,9 @@ form {
 section{
     margin: 5px;
 }
+
+iframe{
+    height: 0;
+    width: 0;
+    border: none;
+}

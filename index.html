@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="import" href="./extern.html">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style_page-env.css">
     <link rel="stylesheet" href="./style_car-card.css">
@@ -11,7 +12,7 @@
     <script src="./CarPhotoMain.js"></script>
     <script src="./CarPhotoNext.js"></script>
     <script src="./CarPhotoHtmlElement.js"></script>
-    <script src="./script_function.js"></script>
+    <script src="./CarPhotoMainHtml.js"></script>
     <script src="./script.js"></script>
     <title>Lesson14_baza-gai</title>
 </head>
@@ -42,4 +43,42 @@
 
     <footer></footer>
 </body>
+
+<template id="car-photo">
+    <div class="car-card__main car-card__img">
+        <img src="./img/car_icon.jpg" alt="car">
+        <div class="car-card__content car-card__overlay">
+            <div class="car-card__content-top">
+                <div class="plate-number">
+                <div class="plate-number__flag">
+                    <div class="plate-number__flag-icon">
+                        <div class="flag-icon__blue"></div>
+                        <div class="flag-icon__yellow"></div>
+                    </div>
+                    <div class="plate-number__code-country">
+                        <span>UA</span>
+                    </div>
+                </div>
+                <div class="plate-number__text">
+                    <span>AE 4000 IT</span>
+                </div>  
+                </div>
+                <!-- <div class="content-top__message-info">
+                    <span>Uncorrect format!!!</span>
+                </div> -->
+                <div class="plate-data__registr">
+                    <span>28.02.2024</span>
+                </div>
+            </div>
+            <div class="car-card__content-bottom">
+                <div class="car-card__data-model">
+                    <span>2017</span>
+                </div>
+                <div class="car-card__mark-model">
+                    <span>BMW X3<span></span>
+                </div> 
+            </div>
+        </div>
+    </div>
+</template>
 </html>

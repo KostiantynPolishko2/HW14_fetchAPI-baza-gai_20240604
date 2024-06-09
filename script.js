@@ -1,27 +1,29 @@
 const key = '53f98d3aa5e27428971d52008bedee4a';
 
 document.addEventListener('DOMContentLoaded', async (e) => {
-    // console.log('Start');
+    console.log('Start index.html');
 
-    // const carPhotoMain = new CarPhotoMain('car-photo__main');
-    // document.querySelector('main').firstElementChild.appendChild(carPhotoMain.divContainer);
+    const carPhotoMain = new CarPhotoMainHtml();
+    document.querySelector('main').firstElementChild.appendChild(carPhotoMain);
 
-    // const carsPhotoNext = [];
-    // createArrCarPhotoNext(carsPhotoNext, 5);
+    const carsPhotoNext = [];
+    createArrCarPhotoNext(carsPhotoNext, 5);
 
-    // document.search.send.addEventListener('click', (e)=>{       
-    //     let number = e.target.previousElementSibling.value.replace(/\s/g, '');
-    //     number = number.replace(/[a-z]/gi, x => x.toUpperCase());
+    document.search.send.addEventListener('click', (e)=>{ 
+        removeChild($('main section').last()[0]);
+        
+        let number = e.target.previousElementSibling.value.replace(/\s/g, '');
+        number = number.replace(/[a-z]/gi, x => x.toUpperCase());
 
-    //     if(isNumber(number)){
-    //         createCarPhoto(number, carPhotoMain, carsPhotoNext);
-    //         e.target.previousElementSibling.value = number;
-    //     }
-    //     else{
-    //         carPhotoMain.setInputUnFormat(number);
-    //         document.search.reset();         
-    //     }       
-    // })
+        if(isNumber(number)){
+            createCarPhoto(number, carPhotoMain, carsPhotoNext);
+            e.target.previousElementSibling.value = number;
+        }
+        else{
+            carPhotoMain.setInputUnFormat(number);
+            document.search.reset();         
+        }       
+    })
 })
 
 const createArrCarPhotoNext = (carsPhotoNext, size) => {
@@ -31,7 +33,6 @@ const createArrCarPhotoNext = (carsPhotoNext, size) => {
 }
 
 const isNumber = (number) => {
-    //console.log(number);
     const regex = /\b[A-Z]{2}\d{4}[A-Z]{2}\b/i;
     return regex.test(number);
 }
@@ -51,30 +52,27 @@ const copyInstance = (instance) => {
 }
 
 const createCarPhoto = async(nomer, carPhotoMain, carsPhotoNext) => {
-    
-    removeChild($('main section').last()[0]);
-
     try{
         const result = await getApiObjByNumber(nomer);
-        carPhotoMain.id = `${result.vendor??= 'x-vendor'}-${result.model??= 'y-model'}`;
+        carPhotoMain.identity = `${result.vendor??= 'x-vendor'}-${result.model??= 'y-model'}`;
         carPhotoMain.setCarPhotoTxt(getCarPhotoData(result));
 
         //===create list photos of previous cars===
-        const cars = Array.from(result.operations);
-        if(cars.length > 1){
-            for(let i = 1; i != cars.length; i++){
-                try{
-                    let url_photo = getUrlPhotoCar(await getApiObjByVendorModel(cars[i].vendor, cars[i].model));
-                    carsPhotoNext[i-1].id = `${cars[i].vendor??= 'vendor' + (i-1).toString()}-${cars[i].model??= 'model' + (i-1).toString()}`;
-                    carsPhotoNext[i-1].setCarPhotoTxt(getCarPhotoDataToNext(cars[i], url_photo, nomer));
-                    document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
-                }
-                catch(error){
-                    carsPhotoNext[i-1].setEror404(nomer);
-                    document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
-                }
-            }
-        }
+        // const cars = Array.from(result.operations);
+        // if(cars.length > 1){
+        //     for(let i = 1; i != cars.length; i++){
+        //         try{
+        //             let url_photo = getUrlPhotoCar(await getApiObjByVendorModel(cars[i].vendor, cars[i].model));
+        //             carsPhotoNext[i-1].id = `${cars[i].vendor??= 'vendor' + (i-1).toString()}-${cars[i].model??= 'model' + (i-1).toString()}`;
+        //             carsPhotoNext[i-1].setCarPhotoTxt(getCarPhotoDataToNext(cars[i], url_photo, nomer));
+        //             document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
+        //         }
+        //         catch(error){
+        //             carsPhotoNext[i-1].setEror404(nomer);
+        //             document.querySelector('main').lastElementChild.appendChild(carsPhotoNext[i-1].divContainer);
+        //         }
+        //     }
+        // }
     }
     catch(error){
         carPhotoMain.setEror404(nomer);
