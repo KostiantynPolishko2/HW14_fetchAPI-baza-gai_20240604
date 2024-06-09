@@ -1,0 +1,61 @@
+section.car-card__hor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mb-2{
+    margin-bottom: 0.5rem;
+}
+
+.mt-4{
+    margin-top: 1.5rem;
+}
+
+.form-search__description{
+    font-size: 1.25rem;
+}
+
+.input-group{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.form-control{
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.input-group > .form-control{
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.form-search__btn{
+    margin-left: -1px;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border: 1px solid #212529;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+}
+
+.form-search__btn:hover{
+    background-color: #6c757d;
+    color: #fff;
+}
