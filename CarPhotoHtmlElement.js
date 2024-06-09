@@ -5,7 +5,7 @@ class CarPhotoHtmlElement extends HTMLElement{
     constructor(){
         super();
 
-        this.#template = document.querySelector('template#car-photo').content;
+        this.#template = document.querySelector('template#car-photo').content.cloneNode(true);
         this.#createElement();
         this.#setDefault();
     }

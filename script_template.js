@@ -31,25 +31,25 @@ document.addEventListener('DOMContentLoaded', async e => {
     // const carPhoto = new CarPhotoHtmlElement();
     // document.querySelector('body#template').appendChild(carPhoto);
 
-    console.log('form', document.querySelector('form'));
 
     const carPhotoMain = new CarPhotoMainHtml();
     carPhotoMain.identity = 'BMW-X3';
-    
-    // carPhotoMain.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
-    // document.querySelector('body#template').appendChild(carPhotoMain);
+    console.log(carPhotoMain);
+    carPhotoMain.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
+    document.querySelector('section#main').appendChild(carPhotoMain);
+
+    const carPhotoNext = new CarPhotoNextHtml();
+    carPhotoNext.identity = 'BMW-X5';
+    console.log(carPhotoNext);
+    carPhotoNext.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
+    document.querySelector('section#next').appendChild(carPhotoNext);
     
     // const clone = carPhotoMain.cloneNode(true);
-    // clone.setCarPhotoTxt(getCarPhotoData(await getApiObjByNumber('AE4000IT')));
+    // clone.setInputUnFormat('AE4000IT');
     // document.querySelector('body#template').appendChild(clone);
 
-    // carPhotoMain.setInputUnFormat('AE4000IT');
-    // document.querySelector('body#template').appendChild(carPhotoMain);
-
-    carPhotoMain.setEror404('AE4000IT');
-    document.querySelector('body#template').appendChild(carPhotoMain);
-
-    // const clone = carPhoto.cloneNode(true);
-    // document.querySelector('body#template').appendChild(clone);
+    // const clone2 = carPhotoMain.cloneNode(true);
+    // clone2.setEror404('AE4000IT')
+    // document.querySelector('body#template').appendChild(clone2);
 })
 
